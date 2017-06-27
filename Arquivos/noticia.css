@@ -1,0 +1,195 @@
+/* Reset CSS */
+*, *:after, *:before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.container {
+   # float: left;
+   # max-width: 300px;
+   # height: 300px;
+   # border: 1px solid black;
+
+   font-family: "Arial", Gadget, sans-serif;
+   font-size:21px;
+}
+.container .topo{
+}
+
+.container .topo .menu  {
+
+}
+.container .topo .menu .item {
+  display: inline;
+  list-style-type: none;
+  margin-right:40px;
+  margin-top:10px;
+  float: left;
+  position: relative;
+
+
+}
+
+.container .topo .menu .item:hover .submenu {
+  visibility: visible;
+
+}
+.container .topo{
+
+}
+.container .topo .menu .submenu{
+  visibility: hidden;
+ 
+}
+
+.container .topo .menu .submenu .subitem{
+
+  list-style-type: none;
+}
+.container .topo .menu .logo{
+  float: left;
+  text-indent:-9999px;
+  width:20%;
+  margin-right:100px;
+  margin-left:100px;
+}
+.container .content{
+
+}
+
+.container .content .slider{
+   overflow: hidden;
+   width:100%;
+   height: 10%;
+   margin-top:20px;
+}
+
+.container .content .slider figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+}
+.container .content .slider figure img { width: 20%; float: left; }
+
+.container .content .slider button {
+  color:#fff!important;
+  background-color:#a52a2a!important
+}
+.container .content .slider .button-left{
+  position:absolute;
+  top:51%;
+  left:7%;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(-0%,-50%)
+  font-size: 38px;
+  border:none!important;
+}
+
+.button-right{
+  position:absolute;
+  top:51%;
+  right:7%;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(0%,-50%)
+  font-size: 38px;
+  border:none!important;
+} 
+.container .footer{
+  
+}
+
+.container .content .filtro {
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+}
+.container .content .filtro div{
+  flex: 1
+}
+.container .content .filtro select{
+  background-color:black;
+  color:white; 
+  font-size:15px;
+}
+.container .content .noticia {
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    padding-top: 20px;
+}
+.container .content .noticia  div{
+  flex: 1
+}
+.container .content .noticia b{
+  font-size: 20px;
+  text-align: left;
+  
+}
+.container .content .grafico{
+  margin: auto;
+  width: 30%;
+}
+#map {
+   width: 100%;
+   height: 400px;
+   background-color: grey;
+ }
+ .container .content .contato{
+    display: flex;
+    height: 500px;
+
+    
+ }
+ .container .content .contato div{
+    flex: 1
+ } 
+ .container .content .contato input{
+    width: 50%;
+ }
+ .container .content .contato h2{
+  font-size: 16px;
+ }
+ .container .content .contato .formulario{
+    background: #B22222;
+    text-align: left;
+    padding-left: 30px;
+    padding-top: 90px;
+    color: #FFFFFF
+
+ }
+ .container .content .contato .formulario textarea{
+    width: 313px;
+    height: 152px;
+ }
+ .container .content .contato .formulario button{
+  background-color:#000000;
+  color:#FFFFFF;
+  border: none;
+  margin-left: 275px;
+ }
+ .container .content .contato .informacoes{
+    padding-top: 40px;
+    margin-left: 100px;
+    text-align: left;    
+ }
+ .container .content .contato .informacoes h2{
+   font-size: 18px;
+ }
+ .container .content .contato .informacoes h1{
+   font-size: 16px;
+ }
+ .container .content .footer{
+  padding-left: 100px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  color: white;
+  background:#000000;
+  width: 100%
+  height:20px; 
+ }

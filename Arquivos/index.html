@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="stylesheet" type="text/css" href="noticia.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcEBDW3ER3XMPprjE-lasiVmb9Nevz-_E&callback=initMap">
+    </script>
+     <script type="text/javascript">
+    window.onload = function(){
+        var i;
+        var elements=document.getElementsByClassName("data");
+        var elementos = [];
+        var Quaelementos = [];
+        var lastItem = "";
+        var quantidadeItem = 0;
+        for(i=0;i<elements.length;i++){
+          var p=elements[i].children[1].innerText;
+
+          if(lastItem == "" || lastItem == p){
+            lastItem = p;
+            quantidadeItem++;
+          }else if(lastItem != p){
+              elementos.push([lastItem,quantidadeItem]);
+              quantidadeItem = 1;
+              lastItem = p
+              if(i + 1 == elements.length){
+                elementos.push([lastItem,quantidadeItem]);
+              }
+          }
+          
+        }
+
+        console.log(elementos);
+      
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows(elementos);
+
+        // Set chart options
+        var options = {'title':'',
+                       'width':400,
+                       'height':400,
+
+                     };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+
+
+    }  
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="topo">
+        <div class="menu">
+         <img class="logo" src="logo-minuto.jpg" />
+              <li class="item">Início</li>
+              <li class="item">Brasil
+                  <ul class="submenu">
+                    <li class="subitem"><a href="#">Submenu 1</a></li>
+                    <li class="subitem"><a href="#">Submenu 2</a></li>
+                    <li class="subitem"><a href="#">Submenu 3</a></li>
+                  </ul>
+              </li> 
+              <li class="item">Mundo
+                  <ul class="submenu">
+                    <li class="subitem"><a href="#">Submenu 1</a></li>
+                    <li class="subitem"><a href="#">Submenu 2</a></li>
+                    <li class="subitem"><a href="#">Submenu 3</a></li>
+                  </ul>
+              </li>
+              <li class="item">Blogs</li>
+              <li class="item">Assine</li>   
+        </div>
+    </div>
+    <div class="content">
+          <div class="slider">
+            <figure>
+              <img class="slide" style="" src="Imagens/Slide/2.jpg"/>
+              <img class="slide" style="display:none;" src="Imagens/Slide/1.jpg" />
+              <img class="slide" style="display:none;" src="Imagens/Slide/4.jpg"/>
+              <img class="slide" style="display:none;" src="Imagens/Slide/5.jpg"/>
+              <img class="slide" style="display:none;" src="Imagens/Slide/3.jpg"/>
+            </figure>
+            <button class="button-left" style="font-size: 38px;" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="button-right" style="font-size: 38px;"  onclick="plusDivs(1)">&#10095;</button>
+          </div>
+          <div class="filtro">
+                <div>
+                  <span><b>EDITORIAS</b></span>
+                </div>
+                <div>
+                  <span>Ordenado por:</span>
+                  <select id="select" onchange="filtrarData();">
+                      <option value="">Data</option>
+                      <option value="20/03/2017">20/03/2017</option>
+                      <option value="21/04/2017">21/04/2017</option>
+                  </select>
+                  <span>Filtrar por:</span>
+                  <select id="selectEditoria" onchange="filtrarEditoria();">
+                      <option value="">EDITORIA</option>
+                      <option value="Governo">Governo</option>
+                      <option value="Carnaval">Carnaval</option>
+                      <option value="Esporte">Esporte</option>
+                      <option value="Viagem">Viagem</option>
+                  </select>
+                </div>
+          </div>
+          <div class="noticia">
+              <div class="data">
+                <p>20/03/2017</p>
+                <p>Governo</p>
+                <img  class="img-noticias img-espaco" src="Imagens/Notícias/8.jpg"/>
+                <p><b>Votação Encerrada</b></p>
+                <p>Após inúmeras interrupções e discussões a votação chegou ao fim.</p>
+              </div>
+              <div class="data">
+                <p>20/03/2017</p>
+                <p>Governo</p>
+                <img  class="img-noticias img-espaco" src="Imagens/Notícias/1.jpg"/>
+                <p><b>Governo Temer</b></p>
+              </div>
+              <div class="data">
+                <p>21/04/2017</p>
+                <p>Governo</p>
+                <img  class="img-noticias img-espaco" src="Imagens/Notícias/6.jpg"/>
+                <p><b>Discurso Dilma</b></p>
+              </div>
+          </div>
+          <div class="noticia">
+              <div class="data">
+                <p>21/04/2017</p>
+                <p>Carnaval</p>
+                <img  class="img-noticias img-espaco" src="Imagens/Notícias/4.jpg"/>
+                <p><b>Carnaval no Rio</b></p>
+              </div>
+              <div class="data">
+                <p>20/03/2017</p>
+                <p>Esporte</p>
+                <img  class="img-noticias img-espaco" src="Imagens/Notícias/3.jpg"/>
+                <p><b>Jogo do Ano</b></p>
+              </div>
+              <div class="data">
+                <p>21/04/2017</p>
+                <p>Viagem</p>
+                <img  class="img-noticias img-espaco" src="Imagens/Notícias/5.jpg"/>
+                <p><b>Paraíso Perdido</b></p>
+              </div>
+          </div>
+          <div class="grafico" id="chart_div"></div>
+          <h3>My Google Maps Demo</h3>
+          <div id="map"></div>
+          <div class="contato">
+            <div class="informacoes">
+              <h2>Entre em Contato</h2>
+              </br>
+              </br>
+              <h2>Onde nos achar</h2>
+              <span>Rua dos Alfeneiros,número 4</span>
+              <p>00-91102</p>
+              <p>Little Whitening</p>
+              <p>Londres/Inglaterra</p>
+              </br>
+              </br>
+              <p>(21)4004-1234</p>
+              <p>(21)4004-4321</p>
+            </div>
+            <div class="formulario">
+              <h2>Mande uma Mensagem</h2>
+              </br>
+              <p>Seu nome</p>
+              <input type="text" name=""/>
+              </br>
+              <p>E-mail:</p>
+              <input type="text" name=""/>
+              </br>
+              <p>Mensagem:</p>
+              <textarea></textarea>
+              </br>
+              <button>Enviar</button>
+            </div>
+          </div>
+          <div class="footer">
+            © Entrevista | Front
+          </div>
+</div>
+  <script>
+
+
+      var slideIndex = 1;
+      showDivs(slideIndex);
+
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("slide");
+        if (n > x.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+           x[i].style.display = "none";  
+        }
+        x[slideIndex-1].style.display = "block";  
+      }
+
+      function filtrarData(){
+        var i;
+        var x=document.getElementsByClassName("data");
+        var data=document.getElementById("select");
+        dataSelect= data.value;
+        if(dataSelect== ""){
+            location.reload();
+          }else{
+            for(i=0;i<x.length;i++){ 
+              dataNoticia=x[i].children[0].innerText;
+              
+              if(dataSelect != dataNoticia){
+                x[i].style.display="none";
+              }else{
+                x[i].style.display="block";
+              }  
+            }  
+          }    
+        }
+
+        function filtrarEditoria(){
+          var i;
+          var x=document.getElementsByClassName("data");
+          var editoria=document.getElementById("selectEditoria");
+          editoriaSelect= editoria.value;
+          if(editoriaSelect==""){
+            location.reload();
+          }else{
+            for(i=0;i<x.length;i++){
+              editoriaNoticia=x[i].children[1].innerText;
+              if (editoriaSelect!= editoriaNoticia) {
+                  x[i].style.display="none";
+              }else{
+                x[i].style.display="block";
+              }
+            }
+          }
+        } 
+        
+        
+         function initMap() {
+          var uluru = {lat: -25.363, lng: 131.044};
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: uluru
+          });
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+          });
+      }
+    </script>   
+</body>
+</html>
